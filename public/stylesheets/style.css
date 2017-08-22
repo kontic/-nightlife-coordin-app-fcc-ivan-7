@@ -1,0 +1,93 @@
+.w3-top, .w3-bottom {
+  left: 0;
+  right: 0;
+}
+
+
+
+
+
+/******************************************************************************/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url(/pics/nightlife.jpg);
+  background-attachment: fixed;
+  background-size: cover; 
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#brand-name{
+  font-size: 20px;
+  padding: 12px 24px 13px 0px;
+  text-decoration: none;
+  color: white;
+}
+
+#greeting {
+  font-size: 16px;
+  padding: 15px 24px 15px 0px;
+}
+
+.search-item {
+  background-color: rgba(63, 81, 181, 0.5);
+  color: white;
+  position: relative;
+  height: 120px;
+  padding: 10px 10px;
+  padding-left: 130px;
+  margin-top: 5px;
+  overflow:hidden !important;
+}
+
+.search-item-image {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 10px;
+  left: 10px;
+  background-size: cover; 
+}
+
+.search-item button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.waiting_loader{
+  margin: 30px auto;
+}
+
+.loader {
+  border: 16px solid teal;
+  border-radius: 50%;
+  border-top: 16px solid white;
+  border-bottom: 16px solid white;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}

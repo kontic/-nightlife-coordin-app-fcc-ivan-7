@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <% include partials/head %>
+
+  </head>
+  <body>
+    
+    <% include partials/header %>
+      
+    <div class="container">
+      <h1 class="w3-text-white">Nightlife Coordination <code style="font-size: 16px">[Powered By Yelp]</code></h1>
+      <p class="w3-text-light-gray">Check for bars in your area and mark some of them.</p>
+      <form class="w3-row w3-margin-bottom">
+        <% if(!reload) { %>
+          <input class="w3-input w3-border w3-col m10 s8" type="text" placeholder="Where are you?" name="search_location" required>
+        <% } else { %>
+          <input class="w3-input w3-border w3-col m10 s8" type="text" placeholder="Where are you?" name="search_location" value="<%= search_location %>" required>
+        <% } %>
+        <button class="w3-btn w3-indigo w3-border w3-col m2 s4" type="submit">Search</button>
+      </form>
+      
+      <div class="waiting_loader"></div>
+      <div class="searchResults">
+
+      </div>
+      
+    </div>
+    
+    <% include partials/footer %>
+    
+    <script src="/javascripts/index_client.js"></script>
+    <% if(reload) { %>
+      <script>
+        load_data();
+      </script>
+    <% } %>
+    
+    <script>
+      $( ".searchResults" ).on( "click", ".search-item button", function( event ) {
+        event.preventDefault();
+        var self = this;
+        $.post('/update_num_going', {
+  				'business': $(self).val()
+  			}, function(data, textStatus, jqXHR) {
+          $(self).children('span').html(data.num_going);
+			  });
+      });
+    </script>
+    
+    
+  </body>
+</html>
+
